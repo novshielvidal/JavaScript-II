@@ -64,7 +64,10 @@ console.log(fullNames.sort());
 // ==== Challenge 2: Use .map() ====
 // The event director needs to have all the runners' first names in uppercase because the director BECAME DRUNK WITH POWER. Populate an array called `firstNamesAllCaps`. This array will contain just strings.
 let firstNamesAllCaps = runners.map((names) => names.first_name)
-console.log(firstNamesAllCaps.toUpperCase);
+for (var i=0; i < firstNamesAllCaps.length; i++) {
+  firstNamesAllCaps[i].charAt(0).toUpperCase;
+}
+console.log(firstNamesAllCaps.sort());
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue. We need a filtered version of the runners array, containing only those runners with large sized shirts so they can choose a different size. This will be an array of objects.
@@ -72,14 +75,23 @@ let runnersLargeSizeShirt = runners.filter((shirt) => shirt.shirt_size === 'L')
 console.log(JSON.stringify(runnersLargeSizeShirt, null, 4));
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal variable.
-let ticketPriceTotal = runners.map((donate) => donate.donation)
-console.log(ticketPriceTotal.reduce);
+let ticketPriceTotal = runners.map((donate) => donate.donation);
+let reducer = (accumulator, currentValue) => accumulator + currentValue;
+console.log(ticketPriceTotal.reduce(reducer));
 
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
-// Problem 1
 
-// Problem 2
+// Problem 1:  List runners' companies
+let companyNames = runners.map((names) => names.company_name)
+console.log(companyNames);
 
-// Problem 3
+
+// Problem 2:  Donations per company
+let amtDonate = runners.map((names) => names.donation)
+console.log(companyNames + " " + amtDonate);
+
+// Problem 3:  All runners with size M shirts
+let mShirt = runners.filter((shirt) => shirt.shirt_size === 'M')
+console.log(JSON.stringify(mShirt, null, 4));
