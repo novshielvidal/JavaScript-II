@@ -58,24 +58,21 @@ const runners = [
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs. Combine both the first and last names and populate a new array called `fullNames`. This array will contain just strings.
 
-let fullNames = runners.map((names) => names.first_name + " " + names.last_name)
+let fullNames = runners.map((runner) => runner.first_name + " " + runner.last_name)
 console.log(fullNames.sort());
 
 // ==== Challenge 2: Use .map() ====
 // The event director needs to have all the runners' first names in uppercase because the director BECAME DRUNK WITH POWER. Populate an array called `firstNamesAllCaps`. This array will contain just strings.
-let firstNamesAllCaps = runners.map((names) => names.first_name)
-for (var i=0; i < firstNamesAllCaps.length; i++) {
-  firstNamesAllCaps[i].charAt(0).toUpperCase;
-}
-console.log(firstNamesAllCaps.sort());
+let firstNamesAllCaps = runners.map((runner) => runner.first_name.toUpperCase())
+console.log(firstNamesAllCaps);
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue. We need a filtered version of the runners array, containing only those runners with large sized shirts so they can choose a different size. This will be an array of objects.
-let runnersLargeSizeShirt = runners.filter((shirt) => shirt.shirt_size === 'L')
+let runnersLargeSizeShirt = runners.filter((runner) => runner.shirt_size === 'L')
 console.log(JSON.stringify(runnersLargeSizeShirt, null, 4));
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal variable.
-let ticketPriceTotal = runners.map((donate) => donate.donation);
+let ticketPriceTotal = runners.map((runner) => runner.donation);
 let reducer = (accumulator, currentValue) => accumulator + currentValue;
 console.log(ticketPriceTotal.reduce(reducer));
 
@@ -84,13 +81,13 @@ console.log(ticketPriceTotal.reduce(reducer));
 
 
 // Problem 1:  List runners' companies
-let companyNames = runners.map((names) => names.company_name)
+let companyNames = runners.map((runner) => runner.company_name)
 console.log(companyNames);
 
 
 // Problem 2:  Donations per company
-let amtDonate = runners.map((names) => names.donation)
-console.log(companyNames + " " + amtDonate);
+let companyDonate = runners.map((runner) => runner.company_name + " " + runner.donation)
+console.log(companyDonate);
 
 // Problem 3:  All runners with size M shirts
 let mShirt = runners.filter((shirt) => shirt.shirt_size === 'M')
