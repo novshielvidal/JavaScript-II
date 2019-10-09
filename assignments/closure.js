@@ -4,6 +4,14 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+let num1 = Number(prompt('Pick a number'));
+let num2 = Number(prompt('Pick a number'));
+
+function subtractNums(num1, num2) {
+  return num1 - num2;
+}
+  console.log(subtractNums(num1, num2));
+
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
